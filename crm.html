@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Presentation – Smart, Need-Based Proposal Building | BInsure</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg1: #060b1a;
+  --bg2: #0b1430;
+  --accent: #4fd1c5;
+  --glass: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top left, var(--bg2), var(--bg1));
+  overflow-x: hidden;
+  color: #e5e7eb;
+}
+
+/* Animated Mesh Background */
+.mesh {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(79,209,197,0.18), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(99,102,241,0.18), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(236,72,153,0.18), transparent 45%);
+  filter: blur(60px);
+  animation: meshMove 18s ease-in-out infinite alternate;
+}
+
+@keyframes meshMove {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(40px,-60px); }
+}
+
+/* Particles */
+canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+/* Layout */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 120px 20px;
+}
+
+.header {
+  max-width: 850px;
+  margin-bottom: 70px;
+}
+
+.header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.header p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #cbd5f5;
+}
+
+/* Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 26px;
+}
+
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 26px;
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+}
+
+.card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.card ul {
+  list-style: none;
+}
+
+.card ul li {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #d1d5ff;
+  padding-left: 16px;
+  position: relative;
+}
+
+.card ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* Footer */
+.note {
+  margin-top: 80px;
+  text-align: center;
+  font-size: 14px;
+  color: #9ca3af;
+}
+</style>
+</head>
+
+<body>
+
+<div class="mesh"></div>
+<canvas id="particles"></canvas>
+
+<div class="container">
+
+  <div class="header">
+    <h1>Presentation – Deep Dive into Smart, Need-Based Proposal Building</h1>
+    <p>
+      The Presentation module in BInsure empowers insurance advisors to create powerful,
+      customized, and convincing sales presentations tailored to each client’s needs.
+      It offers multiple ways to prepare proposals—from fully custom combinations
+      to expert-designed ready-made solutions.
+    </p>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>1. My Presentation – Create Your Own Custom Proposals</h3>
+      <ul>
+        <li>Build personalized combinations of LIC plans</li>
+        <li>Align benefits and features with individual client goals</li>
+        <li>Customize the layout and flow of the proposal</li>
+        <li>Present need-based solutions with full control and creativity</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>2. Special Presentation – Highlighting Premium LIC Plans</h3>
+      <ul>
+        <li>Professionally designed cover pages</li>
+        <li>Highlighted key features and benefits</li>
+        <li>Comprehensive plan summaries</li>
+        <li>Attractive and easy-to-understand illustrations</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>3. Combinations – Expert-Crafted Ready Solutions</h3>
+      <ul>
+        <li>Smart Investor – Higher return-focused planning</li>
+        <li>Jeevan Mahotsav – Comfort and financial stability</li>
+        <li>Smart Lady – Women-oriented financial protection</li>
+        <li>Complete Education – Child education and future goals</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>4. Retirement Pack – Dedicated Retirement Planning</h3>
+      <ul>
+        <li>Research-backed LIC retirement combinations</li>
+        <li>Clear retirement income projections</li>
+        <li>Long-term benefit illustrations</li>
+        <li>Optimized wealth creation after retirement</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="note">
+    ©️ BInsure Presentation Suite · Smart. Structured. Need-Based.
+  </div>
+
+</div>
+
+<script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+let w, h;
+function resize() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resize);
+resize();
+
+const particles = Array.from({ length: 80 }, () => ({
+  x: Math.random() * w,
+  y: Math.random() * h,
+  r: Math.random() * 2 + 0.6,
+  vx: (Math.random() - 0.5) * 0.3,
+  vy: (Math.random() - 0.5) * 0.3
+}));
+
+function animate() {
+  ctx.clearRect(0, 0, w, h);
+  ctx.fillStyle = "rgba(255,255,255,0.4)";
+
+  particles.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+    if (p.x < 0 || p.x > w) p.vx *= -1;
+    if (p.y < 0 || p.y > h) p.vy *= -1;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>
