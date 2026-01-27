@@ -84,15 +84,13 @@ export function ConnectionMap() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          {/* India outline SVG */}
-          <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
-            <path
-              d="M 35 25 L 38 22 L 42 20 L 46 19 L 50 19 L 54 20 L 58 22 L 61 25 L 63 28 L 64 32 L 64 36 L 63 40 L 61 44 L 58 47 L 55 50 L 52 53 L 50 56 L 48 60 L 46 65 L 44 70 L 42 75 L 40 80 L 38 85 L 36 88 L 34 90 L 32 85 L 30 80 L 28 75 L 26 70 L 25 65 L 24 60 L 24 55 L 25 50 L 27 45 L 29 40 L 31 35 L 33 30 L 35 25 Z"
-              fill="none"
-              stroke="#3b82f6"
-              strokeWidth="0.5"
-            />
-          </svg>
+          {/* India outline image from public folder, tinted to match border color */}
+          <img
+            src="/500px-India_outline.svg.png"
+            alt="India outline"
+            className="absolute inset-0 w-full h-full opacity-25 object-contain m-auto pointer-events-none"
+            style={{ filter: 'grayscale(1) brightness(0) invert(0.45) sepia(1) saturate(600%) hue-rotate(170deg)' }}
+          />
 
           {/* Grid background */}
           <svg className="absolute inset-0 w-full h-full opacity-5">
