@@ -32,7 +32,7 @@
 2. Connect your GitHub repo
 3. Name: `binsure-frontend`
 4. Build Command: `npm install && npm run build`
-5. Publish Directory: `dist`
+5. **Publish Directory**: `dist` (This field appears after you set the build command)
 6. Add Environment Variable:
    - `VITE_API_URL` = `https://binsure-backend.onrender.com`
 
