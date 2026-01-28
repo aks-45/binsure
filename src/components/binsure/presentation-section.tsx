@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { CheckCircle, Zap, BarChart3, Shield } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const highlights = [
   {
@@ -20,6 +21,7 @@ const highlights = [
 ];
 
 export function PresentationSection() {
+  const navigate = useNavigate();
   return (
     <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
       <div className="max-w-7xl mx-auto px-6">
@@ -65,6 +67,7 @@ export function PresentationSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/contact')}
               className="px-10 py-5 bg-orange-500 hover:bg-orange-600 text-white rounded-lg text-xl transition-all duration-300 shadow-xl hover:shadow-2xl"
             >
               Start 5-Day Free Trial

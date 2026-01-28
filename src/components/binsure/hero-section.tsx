@@ -1,7 +1,10 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function HeroSection() {
+  const navigate = useNavigate();
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Animated background gradient */}
@@ -79,7 +82,10 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <button className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-lg text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+            <button 
+              className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-lg text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+              onClick={() => navigate('/contact')}
+            >
               Start Free Trial
             </button>
             <button className="px-8 py-4 bg-transparent border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-lg text-lg transition-all duration-300 transform hover:scale-105">

@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export function FinalCTA() {
+  const navigate = useNavigate();
   return (
     <section className="relative py-20 overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800">
       {/* Animated background */}
@@ -93,6 +95,7 @@ export function FinalCTA() {
             className="group relative px-10 py-4 bg-orange-500 text-white rounded-xl text-lg overflow-hidden shadow-2xl"
             whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => navigate('/contact')}
           >
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600"
@@ -115,6 +118,7 @@ export function FinalCTA() {
             className="group px-10 py-4 bg-transparent border-2 border-white text-white rounded-xl text-lg relative overflow-hidden"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => navigate('/contact')}
           >
             <motion.div
               className="absolute inset-0 bg-white"

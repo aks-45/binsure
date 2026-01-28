@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function EnhancedHero() {
+  const navigate = useNavigate();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -97,10 +99,7 @@ export function EnhancedHero() {
             <a href="/services" className="hover:text-white transition-colors">
               Features
             </a>
-            <a href="#about" className="hover:text-white transition-colors">
-              About
-            </a>
-            <a href="#contact" className="hover:text-white transition-colors">
+            <a href="/contact" className="hover:text-white transition-colors">
               Contact
             </a>
           </nav>
@@ -159,6 +158,7 @@ export function EnhancedHero() {
             className="group relative px-8 py-3 bg-orange-500 text-white rounded-lg text-base overflow-hidden"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => navigate('/contact')}
           >
             <motion.div
               className="absolute inset-0 bg-orange-600"
@@ -173,6 +173,7 @@ export function EnhancedHero() {
             className="group px-8 py-3 bg-transparent border-2 border-blue-400 text-blue-400 rounded-lg text-base relative overflow-hidden"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => navigate('/contact')}
           >
             <motion.div
               className="absolute inset-0 bg-blue-400"
