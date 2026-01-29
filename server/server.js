@@ -15,6 +15,17 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
 
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({
+    status: 'OK',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV,
+    database: isProduction ? 'PostgreSQL' : 'SQLite',
+    databaseUrl: process.env.DATABASE_URL ? 'configured' : 'missing'
+  });
+});
+
 // Database setup - use PostgreSQL in production, SQLite in development
 let db;
 const isProduction = process.env.NODE_ENV === 'production';
