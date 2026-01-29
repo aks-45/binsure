@@ -111,8 +111,7 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-white font-medium mb-1">Email</h3>
-                    <p className="text-blue-200/70">contact@binsure.com</p>
-                    <p className="text-blue-200/70">support@binsure.com</p>
+                    <p className="text-blue-200/70">binsuresoftware@gmail.com</p>
                   </div>
                 </div>
 
@@ -122,8 +121,8 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-white font-medium mb-1">Phone</h3>
-                    <p className="text-blue-200/70">+91 1800-XXX-XXXX</p>
-                    <p className="text-blue-200/70">+91 22-XXXX-XXXX</p>
+                    <p className="text-blue-200/70">Toshi Jain (Sales) : +917447337594</p>
+                    <p className="text-blue-200/70">Support: +917219885007</p>
                   </div>
                 </div>
 
