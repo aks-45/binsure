@@ -26,6 +26,19 @@ app.get('/health', (req, res) => {
   });
 });
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Binsure Backend API',
+    status: 'running',
+    endpoints: {
+      health: '/health',
+      contacts: '/api/contacts',
+      submit: 'POST /api/contact'
+    }
+  });
+});
+
 // Database setup - use PostgreSQL in production, SQLite in development
 let db;
 const isProduction = process.env.NODE_ENV === 'production';
