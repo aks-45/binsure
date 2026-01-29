@@ -93,15 +93,15 @@ export function EnhancedHero() {
             Binsure
           </div>
           <nav className="hidden md:flex gap-8 text-white/80 text-sm">
-            <a href="/servicing-reports" className="hover:text-white transition-colors">
+            <button onClick={() => navigate('/servicing-reports')} className="hover:text-white transition-colors">
               Services
-            </a>
-            <a href="/services" className="hover:text-white transition-colors">
+            </button>
+            <button onClick={() => navigate('/services')} className="hover:text-white transition-colors">
               Features
-            </a>
-            <a href="/contact" className="hover:text-white transition-colors">
+            </button>
+            <button onClick={() => navigate('/contact')} className="hover:text-white transition-colors">
               Contact
-            </a>
+            </button>
           </nav>
         </div>
       </motion.header>

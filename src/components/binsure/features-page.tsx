@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { FileText, Presentation, Users, Target } from "lucide-react";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const features = [
   {
@@ -50,6 +51,7 @@ const features = [
 ];
 
 export function FeaturesPage() {
+  const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -85,18 +87,15 @@ export function FeaturesPage() {
             Binsure
           </div>
           <nav className="hidden md:flex gap-8 text-white/80 text-sm">
-            <a href="/" className="hover:text-white transition-colors">
+            <button onClick={() => navigate('/')} className="hover:text-white transition-colors">
               Home
-            </a>
-            <a href="#features" className="text-white">
+            </button>
+            <span className="text-white">
               Features
-            </a>
-            <a href="#about" className="hover:text-white transition-colors">
-              About
-            </a>
-            <a href="#contact" className="hover:text-white transition-colors">
+            </span>
+            <button onClick={() => navigate('/contact')} className="hover:text-white transition-colors">
               Contact
-            </a>
+            </button>
           </nav>
         </div>
       </motion.header>
