@@ -58,31 +58,36 @@ if (isProduction) {
 // Contact form endpoint
 app.post('/api/contact', async (req, res) => {
   const { name, email, phone, message } = req.body;
+  console.log('Received contact form submission:', { name, email, phone: phone ? 'provided' : 'not provided' });
   
   try {
     if (isProduction) {
       // PostgreSQL query
+      console.log('Using PostgreSQL database');
       const result = await db.query(
         'INSERT INTO contacts (name, email, phone, message) VALUES ($1, $2, $3, $4) RETURNING id',
         [name, email, phone, message]
       );
+      console.log('Contact saved successfully with ID:', result.rows[0].id);
       res.json({ success: true, id: result.rows[0].id });
     } else {
       // SQLite query
+      console.log('Using SQLite database');
       const now = new Date().toLocaleString('sv-SE');
       const stmt = db.prepare(`INSERT INTO contacts (name, email, phone, message, created_at) VALUES (?, ?, ?, ?, ?)`);
       stmt.run([name, email, phone, message, now], function(err) {
         if (err) {
-          console.error(err);
+          console.error('SQLite error:', err);
           return res.status(500).json({ error: 'Failed to save contact' });
         }
+        console.log('Contact saved successfully with ID:', this.lastID);
         res.json({ success: true, id: this.lastID });
       });
       stmt.finalize();
     }
   } catch (error) {
     console.error('Error saving contact:', error);
-    res.status(500).json({ error: 'Failed to save contact' });
+    res.status(500).json({ error: 'Failed to save contact', details: error.message });
   }
 });
 
@@ -112,4 +117,8 @@ app.get('/api/contacts', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`Database: ${isProduction ? 'PostgreSQL' : 'SQLite'}`);
+  console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+  if (isProduction) {
+    console.log(`DATABASE_URL configured: ${process.env.DATABASE_URL ? 'Yes' : 'No'}`);
+  }
 });
