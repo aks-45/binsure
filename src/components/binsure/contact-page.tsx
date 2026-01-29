@@ -16,7 +16,7 @@ export function ContactPage() {
     e.preventDefault();
     
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3002';
+      const apiUrl = (import.meta.env.VITE_API_URL || 'http://localhost:3002').replace(/\/$/, '');
       const response = await fetch(`${apiUrl}/api/contact`, {
         method: 'POST',
         headers: {
