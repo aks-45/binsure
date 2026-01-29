@@ -11,7 +11,10 @@ const __dirname = dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3002;
 
-app.use(cors());
+app.use(cors({
+  origin: ['https://binsure-frontend.onrender.com', 'http://localhost:5173', 'http://localhost:8080'],
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.static(__dirname));
 
@@ -82,7 +85,14 @@ if (isProduction) {
 // Contact form endpoint
 app.post('/api/contact', async (req, res) => {
   const { name, email, phone, message } = req.body;
-  console.log('Received contact form submission:', { name, email, phone: phone ? 'provided' : 'not provided' });
+  console.log('=== CONTACT FORM SUBMISSION ===');
+  console.log('Request body:', { name, email, phone: phone ? 'provided' : 'not provided', message: message ? 'provided' : 'not provided' });
+  console.log('Request headers:', req.headers);
+  
+  if (!name || !email || !message) {
+    console.log('Missing required fields');
+    return res.status(400).json({ error: 'Name, email, and message are required' });
+  }
   
   try {
     if (isProduction) {
