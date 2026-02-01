@@ -3,8 +3,7 @@ import { EnhancedFeatures } from "@/components/binsure/enhanced-features";
 import { ConnectionMap } from "@/components/binsure/connection-map";
 import { EnhancedAbout } from "@/components/binsure/enhanced-about";
 import { EnhancedTestimonials } from "@/components/binsure/enhanced-testimonials";
-import { FinalCTA } from "@/components/binsure/final-cta";
-import { EnhancedFooter } from "@/components/binsure/enhanced-footer";
+import { Footer } from "@/components/binsure/footer";
 
 const Binsure = () => {
   return (
@@ -14,8 +13,7 @@ const Binsure = () => {
       <ConnectionMap />
       <EnhancedAbout />
       <EnhancedTestimonials />
-      <FinalCTA />
-      <EnhancedFooter />
+      <Footer />
     </div>
   );
 };

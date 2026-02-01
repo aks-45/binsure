@@ -51,23 +51,18 @@ export function EnhancedAbout() {
             </motion.div>
 
             <h2 className="text-3xl md:text-4xl text-white mb-6">
-              Building the Future of
+              Built for Agents,
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-                Indian Business
+                Designed for Success
               </span>
             </h2>
 
             <div className="space-y-4 text-blue-100/70 text-base leading-relaxed">
               <p>
-                At Binsure, we understand the unique challenges faced by Indian
-                businesses in today's rapidly evolving digital landscape. Founded
-                with a vision to empower enterprises with cutting-edge technology,
-                we've been at the forefront of business innovation.
+                We build innovative software solutions that help insurance agents work smarter and grow faster. Our tools are designed to simplify policy management, strengthen client relationships, and streamline everyday operations.
               </p>
               <p>
-                Our team combines deep industry expertise with a passion for
-                excellence, delivering solutions that drive real results. We're
-                not just a service provider – we're your trusted partner in growth.
+                By combining industry knowledge with modern technology, we provide digital platforms that support agents at every step — from tracking leads to managing active policies. Whether in the office or on the move, our solutions ensure insurance professionals stay productive, efficient, and in control.
               </p>
             </div>
 

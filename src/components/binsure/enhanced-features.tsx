@@ -1,31 +1,24 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Users, SearchCode, Presentation, Target } from "lucide-react";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const features = [
   {
     icon: Users,
-    title: "CRM",
-    description: "Intelligent customer relationship management that scales with you",
+    title: "Mobile Application",
+    description: "All Your Policy Work, Right from Your Phone",
   },
   {
     icon: SearchCode,
-    title: "Research & Insights",
-    description: "Data-driven analytics that power strategic decisions",
+    title: "Desktop Application",
+    description: "Powerful Tools for Professional Policy Management",
   },
-  {
-    icon: Presentation,
-    title: "Presentation / Project Management",
-    description: "Streamlined workflows from concept to delivery",
-  },
-  {
-    icon: Target,
-    title: "Project-Specific Service Projection",
-    description: "Tailored solutions designed for your unique needs",
-  },
+  
 ];
 
 export function EnhancedFeatures() {
+  const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -85,15 +78,15 @@ export function EnhancedFeatures() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl text-white mb-3">
-            Key Features
+            Our Products
           </h2>
           <p className="text-lg text-blue-200 max-w-2xl mx-auto">
-            Enterprise-grade tools built for the modern Indian business
+            Smart software solutions designed to simplify, manage, and grow your insurance business
           </p>
         </motion.div>
 
         {/* Feature cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto justify-center">
           {features.map((feature, index) => {
             return (
               <motion.div
@@ -106,7 +99,8 @@ export function EnhancedFeatures() {
                   y: -10,
                   transition: { duration: 0.3 },
                 }}
-                className="group relative"
+                onClick={() => navigate('/features')}
+                className="group relative cursor-pointer"
               >
                 {/* Card glow effect */}
                 <motion.div

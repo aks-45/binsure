@@ -83,54 +83,7 @@ export function FinalCTA() {
           intelligent automation and insights
         </motion.p>
 
-        {/* CTAs */}
-        <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <motion.button
-            className="group relative px-10 py-4 bg-orange-500 text-white rounded-xl text-lg overflow-hidden shadow-2xl"
-            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => navigate('/contact')}
-          >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-orange-600 to-red-600"
-              initial={{ x: "-100%" }}
-              whileHover={{ x: 0 }}
-              transition={{ duration: 0.4 }}
-            />
-            <span className="relative z-10 flex items-center gap-2">
-              Start Your 5-Day Free Trial
-              <motion.span
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                →
-              </motion.span>
-            </span>
-          </motion.button>
 
-          <motion.button
-            className="group px-10 py-4 bg-transparent border-2 border-white text-white rounded-xl text-lg relative overflow-hidden"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => navigate('/contact')}
-          >
-            <motion.div
-              className="absolute inset-0 bg-white"
-              initial={{ y: "100%" }}
-              whileHover={{ y: 0 }}
-              transition={{ duration: 0.4 }}
-            />
-            <span className="relative z-10 group-hover:text-blue-700 transition-colors">
-              Book a Call
-            </span>
-          </motion.button>
-        </motion.div>
 
         {/* Trust badges */}
         <motion.div

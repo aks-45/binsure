@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Header } from "./header";
+import { Footer } from "./footer";
 
 export function ContactPage() {
   const navigate = useNavigate();
@@ -50,38 +52,16 @@ export function ContactPage() {
   };
 
   return (
-    <section className="relative min-h-screen py-20 overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-20 w-[600px] h-[600px] bg-blue-500 rounded-full blur-3xl opacity-30" />
-        <div className="absolute bottom-20 right-20 w-[500px] h-[500px] bg-purple-500 rounded-full blur-3xl opacity-30" />
-      </div>
-
-      <motion.header
-        className="absolute top-0 left-0 right-0 z-20 px-6 py-6"
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <button onClick={() => navigate('/')} className="text-white text-xl hover:text-blue-400 transition-colors">
-            Binsure
-          </button>
-          <nav className="hidden md:flex gap-8 text-white/80 text-sm">
-            <button onClick={() => navigate('/')} className="hover:text-white transition-colors">
-              Home
-            </button>
-            <button onClick={() => navigate('/services')} className="hover:text-white transition-colors">
-              Features
-            </button>
-            <button onClick={() => navigate('/#about')} className="hover:text-white transition-colors">
-              About
-            </button>
-            <span className="text-white">Contact</span>
-          </nav>
+    <>
+      <section className="relative min-h-screen py-20 overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-20 left-20 w-[600px] h-[600px] bg-blue-500 rounded-full blur-3xl opacity-30" />
+          <div className="absolute bottom-20 right-20 w-[500px] h-[500px] bg-purple-500 rounded-full blur-3xl opacity-30" />
         </div>
-      </motion.header>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-20">
+        <Header currentPage="contact" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -111,8 +91,7 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-white font-medium mb-1">Email</h3>
-                    <p className="text-blue-200/70">contact@binsure.com</p>
-                    <p className="text-blue-200/70">support@binsure.com</p>
+                    <p className="text-blue-200/70">Binsuresoftware@gmail.com</p>
                   </div>
                 </div>
 
@@ -122,8 +101,8 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-white font-medium mb-1">Phone</h3>
-                    <p className="text-blue-200/70">+91 1800-XXX-XXXX</p>
-                    <p className="text-blue-200/70">+91 22-XXXX-XXXX</p>
+                    <p className="text-blue-200/70">+91 7219885007</p>
+                    <p className="text-blue-200/70">+91 7447337594</p>
                   </div>
                 </div>
 
@@ -135,22 +114,10 @@ export function ContactPage() {
                     <h3 className="text-white font-medium mb-1">Address</h3>
                     <p className="text-blue-200/70">
                       Binsure Technologies Pvt. Ltd.<br />
-                      Business District, Bandra Kurla Complex<br />
-                      Mumbai, Maharashtra 400051<br />
+                      123 Business Hub, Tech Park<br />
+                      Nagpur, Maharashtra 440001<br />
                       India
                     </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 group">
-                  <div className="p-3 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 transition-colors">
-                    <Clock className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-medium mb-1">Business Hours</h3>
-                    <p className="text-blue-200/70">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                    <p className="text-blue-200/70">Saturday: 10:00 AM - 4:00 PM</p>
-                    <p className="text-blue-200/70">Sunday: Closed</p>
                   </div>
                 </div>
               </div>
@@ -237,6 +204,8 @@ export function ContactPage() {
           </motion.div>
         </div>
       </div>
-    </section>
+      </section>
+      <Footer />
+    </>
   );
 }

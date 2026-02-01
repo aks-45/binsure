@@ -8,6 +8,11 @@ import Services from "./pages/Services";
 import ServicingReports from "./pages/ServicingReports";
 import Binsure from "./pages/Binsure";
 import Contact from "./pages/Contact";
+import Features from "./pages/Features";
+import CRM from "./pages/CRM";
+import PresentationModule from "./pages/PresentationModule";
+import ServicesModule from "./pages/ServicesModule";
+import ServicingReportsModule from "./pages/ServicingReportsModule";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +26,11 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Binsure />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/crm" element={<CRM />} />
+          <Route path="/presentation" element={<PresentationModule />} />
+          <Route path="/services-module" element={<ServicesModule />} />
+          <Route path="/servicing-reports-module" element={<ServicingReportsModule />} />
           <Route path="/servicing-reports" element={<ServicingReports />} />
           <Route path="/binsure" element={<Binsure />} />
           <Route path="/contact" element={<Contact />} />

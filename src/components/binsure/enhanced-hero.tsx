@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Header } from "./header";
+import { Footer } from "./footer";
 
 export function EnhancedHero() {
   const navigate = useNavigate();
@@ -81,123 +83,128 @@ export function EnhancedHero() {
         }}
       />
 
-      {/* Minimal header */}
-      <motion.header
-        className="absolute top-0 left-0 right-0 z-20 px-6 py-6"
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="text-white text-xl">
-            Binsure
-          </div>
-          <nav className="hidden md:flex gap-8 text-white/80 text-sm">
-            <button onClick={() => navigate('/servicing-reports')} className="hover:text-white transition-colors">
-              Services
-            </button>
-            <button onClick={() => navigate('/services')} className="hover:text-white transition-colors">
-              Features
-            </button>
-            <button onClick={() => navigate('/contact')} className="hover:text-white transition-colors">
-              Contact
-            </button>
-          </nav>
-        </div>
-      </motion.header>
+      <Header currentPage="home" />
+
+      {/* Main content section with top padding */}
+      <div className="pt-20">
 
       {/* Hero content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-        {/* Eyebrow */}
-        <motion.div
-          className="mb-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <span className="text-blue-400 uppercase tracking-[0.3em] text-xs">
-            Powering Smarter Business Decisions
-          </span>
-        </motion.div>
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[60vh]">
+          {/* Left side - Content */}
+          <div className="text-left">
+            {/* Main statement */}
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-6xl text-white mb-4 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Why
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-purple-400">
+                BInsure?
+              </span>
+            </motion.h1>
 
-        {/* Main statement */}
-        <motion.h1
-          className="text-4xl md:text-5xl lg:text-6xl text-white mb-4 leading-tight"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          Scale Your Business
-          <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-purple-400">
-            With Intelligence
-          </span>
-          <br />
-          Drive Results
-        </motion.h1>
+            {/* Supporting description */}
+            <motion.p
+              className="text-base md:text-lg text-blue-100 mb-8 leading-relaxed"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+            >
+              BInsure is a powerful all-in-one desktop application designed specifically for insurance agents to simplify, streamline, and supercharge their business. It supports every stage of the agent's workflow—pre-sales, new sales, and post-sales servicing—with smart tools that save time, improve accuracy, and enhance client engagement.
+            </motion.p>
 
-        {/* Supporting description */}
-        <motion.p
-          className="text-base md:text-lg text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-        >
-          Transform operations, accelerate growth, and maintain complete control
-          with India's most advanced business intelligence platform
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          className="flex flex-col sm:flex-row gap-3 justify-center items-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-        >
-          <motion.button
-            className="group relative px-8 py-3 bg-orange-500 text-white rounded-lg text-base overflow-hidden"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => navigate('/contact')}
-          >
+            {/* CTA */}
             <motion.div
-              className="absolute inset-0 bg-orange-600"
-              initial={{ x: "-100%" }}
-              whileHover={{ x: 0 }}
-              transition={{ duration: 0.3 }}
-            />
-            <span className="relative z-10">Start Your 5-Day Free Trial</span>
-          </motion.button>
-
-          <motion.button
-            className="group px-8 py-3 bg-transparent border-2 border-blue-400 text-blue-400 rounded-lg text-base relative overflow-hidden"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => navigate('/contact')}
-          >
-            <motion.div
-              className="absolute inset-0 bg-blue-400"
-              initial={{ y: "100%" }}
-              whileHover={{ y: 0 }}
-              transition={{ duration: 0.3 }}
-            />
-            <span className="relative z-10 group-hover:text-slate-900 transition-colors">
-              Book a Call
-            </span>
-          </motion.button>
-        </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <span className="text-blue-400 text-xs uppercase tracking-widest">
-            
-          </span>
+              className="flex justify-start"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+            >
+              <motion.button
+                className="group px-8 py-3 bg-transparent border-2 border-blue-400 text-blue-400 rounded-lg text-base relative overflow-hidden"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/contact')}
+              >
+                <motion.div
+                  className="absolute inset-0 bg-blue-400"
+                  initial={{ y: "100%" }}
+                  whileHover={{ y: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+                <span className="relative z-10 group-hover:text-slate-900 transition-colors">
+                  Book a Call
+                </span>
+              </motion.button>
+            </motion.div>
+          </div>
           
-        </motion.div>
+          {/* Right side - Key Reasons */}
+          <div className="hidden lg:block">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <h2 className="text-2xl md:text-3xl text-white mb-6 leading-tight">
+                Key Reasons to Choose
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-purple-400">
+                  BInsure
+                </span>
+              </h2>
+              
+              <div className="space-y-4">
+                {[
+                  "Manage leads & prospects with ease",
+                  "Create powerful, customized sales presentations",
+                  "Handle post-sales servicing effortlessly",
+                  "Smart reminders for premiums, SB & client events",
+                  "Supports LIC, GI, Mutual Funds & hybrid plans",
+                  "Built specifically for real insurance agent workflows"
+                ].map((reason, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-start gap-3"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                  >
+                    <motion.div
+                      className="flex-shrink-0 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center mt-0.5"
+                      whileHover={{ scale: 1.2 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <span className="text-white text-xs font-bold">✓</span>
+                    </motion.div>
+                    <p className="text-blue-100 text-sm leading-relaxed">
+                      {reason}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <span className="text-blue-400 text-xs uppercase tracking-widest">
+          
+        </span>
+        
+      </motion.div>
       </div>
     </section>
   );

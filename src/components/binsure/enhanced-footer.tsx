@@ -20,8 +20,7 @@ export function EnhancedFooter() {
               Binsure
             </h3>
             <p className="text-blue-200/70 text-sm leading-relaxed">
-              Empowering Indian businesses with intelligent solutions for growth
-              and unprecedented success.
+              Smart software for insurance agents to manage clients, policies, and growth — all in one place.
             </p>
           </motion.div>
 
@@ -34,18 +33,30 @@ export function EnhancedFooter() {
           >
             <h4 className="text-base mb-3 text-blue-400">Quick Links</h4>
             <ul className="space-y-2 text-blue-200/70 text-sm">
-              {["Home", "Features", "Products", "About", "Contact"].map(
-                (link) => (
-                  <li key={link}>
-                    <a
-                      href={`#${link.toLowerCase()}`}
-                      className="hover:text-blue-400 transition-colors hover:translate-x-1 inline-block"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                )
-              )}
+              <li>
+                <a
+                  href="/"
+                  className="hover:text-blue-400 transition-colors hover:translate-x-1 inline-block"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/features"
+                  className="hover:text-blue-400 transition-colors hover:translate-x-1 inline-block"
+                >
+                  Our Products
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/contact"
+                  className="hover:text-blue-400 transition-colors hover:translate-x-1 inline-block"
+                >
+                  Contact
+                </a>
+              </li>
             </ul>
           </motion.div>
 
@@ -60,15 +71,15 @@ export function EnhancedFooter() {
             <ul className="space-y-2 text-blue-200/70 text-sm">
               <li className="flex items-center gap-2 group">
                 <Mail className="w-4 h-4 text-blue-400 group-hover:text-blue-300 transition-colors" />
-                <span className="text-xs">contact@binsure.com</span>
+                <span className="text-xs">Binsuresoftware@gmail.com</span>
               </li>
               <li className="flex items-center gap-2 group">
                 <Phone className="w-4 h-4 text-blue-400 group-hover:text-blue-300 transition-colors" />
-                <span className="text-xs">+91 1800-XXX-XXXX</span>
+                <span className="text-xs">+91 7219885007</span>
               </li>
               <li className="flex items-start gap-2 group">
                 <MapPin className="w-4 h-4 mt-1 text-blue-400 group-hover:text-blue-300 transition-colors" />
-                <span className="text-xs">Mumbai, India</span>
+                <span className="text-xs">Nagpur, India</span>
               </li>
             </ul>
           </motion.div>

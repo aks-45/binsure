@@ -1,33 +1,29 @@
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, User } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Priya Sharma",
-    role: "CEO, TechStart India",
-    image: "https://images.unsplash.com/photo-1653379672421-40c464f335e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBidXNpbmVzcyUyMHByb2Zlc3Npb25hbCUyMHdvbWFufGVufDF8fHx8MTc2ODk2ODA5MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    review: "BeInsure transformed our business operations. Their CRM solution helped us increase customer retention by 40%. Highly recommended!",
+    name: "Amit Gupta",
+    role: "Senior Insurance Agent, Mumbai",
+    review: "Since using BInsure, my business has grown 3x! The lead management system ensures I never lose a potential client, and the automated follow-ups have increased my conversion rate significantly.",
     rating: 5,
   },
   {
-    name: "Rajesh Kumar",
-    role: "Founder, GrowthHub Solutions",
-    image: "https://images.unsplash.com/photo-1706185651641-70fde5591275?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBidXNpbmVzcyUyMG1hbiUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3Njg5NjgwOTJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    review: "The research and analytics tools provided by BeInsure are exceptional. Data-driven decisions have never been easier for our team.",
+    name: "Sunita Sharma",
+    role: "LIC Development Officer, Delhi",
+    review: "BInsure's presentation tools are incredible! My clients are impressed with the professional proposals I create. The premium tracking feature has saved me countless hours and improved client satisfaction.",
     rating: 5,
   },
   {
-    name: "Ananya Patel",
-    role: "Director, Innovation Labs",
-    image: "https://images.unsplash.com/photo-1562583616-e8a045ed56e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBlbnRyZXByZW5ldXIlMjBzdGFydHVwfGVufDF8fHx8MTc2ODk2ODA5Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    review: "Outstanding service! The project management tools streamlined our workflow and improved team productivity significantly.",
+    name: "Rajesh Patel",
+    role: "General Insurance Agent, Ahmedabad",
+    review: "Managing policies from multiple companies was a nightmare before BInsure. Now I have everything organized in one dashboard. My efficiency has doubled and client servicing has become seamless.",
     rating: 5,
   },
   {
-    name: "Vikram Singh",
-    role: "Managing Partner, NextGen Ventures",
-    image: "https://images.unsplash.com/photo-1765518875443-34ac74ef5ec1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjB0ZWNoJTIwcHJvZmVzc2lvbmFsfGVufDF8fHx8MTc2ODk2ODA5Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    review: "BeInsure understands the Indian market perfectly. Their custom solutions have been instrumental in scaling our operations.",
+    name: "Kavita Singh",
+    role: "Insurance Advisor, Pune",
+    review: "The servicing reports and renewal reminders are game-changers! I can provide proactive service to my clients, which has strengthened relationships and increased my retention rate to 95%.",
     rating: 5,
   },
 ];
@@ -106,12 +102,12 @@ export function EnhancedTestimonials() {
 
                 {/* Client Info */}
                 <div className="flex items-center gap-3 pt-3 border-t border-blue-500/20">
-                  <motion.img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-10 h-10 rounded-full object-cover border-2 border-blue-500/30"
+                  <motion.div
+                    className="w-10 h-10 rounded-full bg-blue-500/20 border-2 border-blue-500/30 flex items-center justify-center"
                     whileHover={{ scale: 1.1 }}
-                  />
+                  >
+                    <User className="w-5 h-5 text-blue-400" />
+                  </motion.div>
                   <div>
                     <h4 className="text-white text-xs">
                       {testimonial.name}

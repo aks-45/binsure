@@ -9,7 +9,7 @@ const products = [
   },
   {
     icon: SearchCode,
-    title: "Research",
+    title: "Presentation",
     description: "Data-driven insights and analytics to make informed business decisions",
   },
   {
