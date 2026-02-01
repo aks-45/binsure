@@ -91,7 +91,7 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-white font-medium mb-1">Email</h3>
-                    <p className="text-blue-200/70">Binsuresoftware@gmail.com</p>
+                    <p className="text-blue-200/70">binsuresoftware@gmail.com</p>
                   </div>
                 </div>
 
@@ -101,8 +101,8 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-white font-medium mb-1">Phone</h3>
-                    <p className="text-blue-200/70">+91 7219885007</p>
-                    <p className="text-blue-200/70">+91 7447337594</p>
+                    <p className="text-blue-200/70">Toshi Jain (Sales) : +917447337594</p>
+                    <p className="text-blue-200/70">Support: +917219885007</p>
                   </div>
                 </div>
 
