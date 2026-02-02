@@ -144,7 +144,7 @@ export function EnhancedHero() {
           </div>
           
           {/* Right side - Key Reasons */}
-          <div className="hidden lg:block">
+          <div className="lg:mt-0 mt-8">
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
