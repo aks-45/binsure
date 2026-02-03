@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Users, Presentation, Settings, FileText, CheckCircle, Calendar, Bell, TrendingUp } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { Header } from "./header";
 import { Footer } from "./footer";
 
@@ -66,6 +67,17 @@ const features = [
 
 export function FeaturesOverview() {
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkDevice = () => {
+      setIsMobile(window.innerWidth < 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+    
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+    return () => window.removeEventListener('resize', checkDevice);
+  }, []);
 
   return (
     <>
@@ -103,31 +115,31 @@ export function FeaturesOverview() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex justify-center mt-8"
           >
-            {/* Mobile App Button - Only on Mobile */}
-            <motion.a
-              href="https://play.google.com/store/apps/details?id=com.accrete.beinsure"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="md:hidden group px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg text-base relative overflow-hidden flex items-center gap-3 justify-center"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="relative z-10 text-2xl">📱</span>
-              <span className="relative z-10 font-medium">Download Mobile App</span>
-            </motion.a>
-            
-            {/* Desktop App Button - Only on Desktop */}
-            <motion.a
-              href="https://www.accreteindia.com/Setup/DownloadSetup.zip"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:flex group px-8 py-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg text-base relative overflow-hidden items-center gap-3 justify-center"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="relative z-10 text-2xl">💻</span>
-              <span className="relative z-10 font-medium">Download Desktop App</span>
-            </motion.a>
+            {isMobile ? (
+              <motion.a
+                href="https://play.google.com/store/apps/details?id=com.accrete.beinsure"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg text-base relative overflow-hidden flex items-center gap-3 justify-center"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="relative z-10 text-2xl">📱</span>
+                <span className="relative z-10 font-medium">Download Mobile App</span>
+              </motion.a>
+            ) : (
+              <motion.a
+                href="https://www.accreteindia.com/Setup/DownloadSetup.zip"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group px-8 py-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg text-base relative overflow-hidden flex items-center gap-3 justify-center"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="relative z-10 text-2xl">💻</span>
+                <span className="relative z-10 font-medium">Download Desktop App</span>
+              </motion.a>
+            )}
           </motion.div>
         </motion.div>
 
