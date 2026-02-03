@@ -128,7 +128,7 @@ export function EnhancedHero() {
                 className="group px-8 py-3 bg-transparent border-2 border-blue-400 text-blue-400 rounded-lg text-base relative overflow-hidden"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => navigate('/contact')}
+                onClick={() => { window.scrollTo(0, 0); navigate('/contact'); }}
               >
                 <motion.div
                   className="absolute inset-0 bg-blue-400"

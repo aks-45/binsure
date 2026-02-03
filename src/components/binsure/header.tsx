@@ -19,7 +19,7 @@ export function Header({ currentPage }: HeaderProps) {
       transition={{ duration: 0.6 }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <button onClick={() => navigate('/')}>
+        <button onClick={() => { window.scrollTo(0, 0); navigate('/'); }}>
           <img
             src="/logo.png"
             alt="Binsure"
@@ -33,21 +33,21 @@ export function Header({ currentPage }: HeaderProps) {
           {currentPage === 'home' ? (
             <span className="text-slate-900 font-medium">Home</span>
           ) : (
-            <button onClick={() => navigate('/')} className="hover:text-slate-900 transition-colors">
+            <button onClick={() => { window.scrollTo(0, 0); navigate('/'); }} className="hover:text-slate-900 transition-colors">
               Home
             </button>
           )}
           {currentPage === 'products' ? (
             <span className="text-slate-900 font-medium">Our Products</span>
           ) : (
-            <button onClick={() => navigate('/features')} className="hover:text-slate-900 transition-colors">
+            <button onClick={() => { window.scrollTo(0, 0); navigate('/features'); }} className="hover:text-slate-900 transition-colors">
               Our Products
             </button>
           )}
           {currentPage === 'contact' ? (
             <span className="text-slate-900 font-medium">Contact</span>
           ) : (
-            <button onClick={() => navigate('/contact')} className="hover:text-slate-900 transition-colors">
+            <button onClick={() => { window.scrollTo(0, 0); navigate('/contact'); }} className="hover:text-slate-900 transition-colors">
               Contact
             </button>
           )}
@@ -77,6 +77,7 @@ export function Header({ currentPage }: HeaderProps) {
           <nav className="px-6 py-4 space-y-4">
             <button
               onClick={() => {
+                window.scrollTo(0, 0);
                 navigate('/');
                 setIsMenuOpen(false);
               }}
@@ -88,6 +89,7 @@ export function Header({ currentPage }: HeaderProps) {
             </button>
             <button
               onClick={() => {
+                window.scrollTo(0, 0);
                 navigate('/features');
                 setIsMenuOpen(false);
               }}
@@ -99,6 +101,7 @@ export function Header({ currentPage }: HeaderProps) {
             </button>
             <button
               onClick={() => {
+                window.scrollTo(0, 0);
                 navigate('/contact');
                 setIsMenuOpen(false);
               }}

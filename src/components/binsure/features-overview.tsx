@@ -95,6 +95,38 @@ export function FeaturesOverview() {
           <p className="text-lg text-blue-200 max-w-3xl mx-auto">
             From lead generation to policy servicing, BInsure provides everything insurance agents need to grow their business and serve clients better.
           </p>
+          
+          {/* Download Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
+          >
+            <motion.a
+              href="https://play.google.com/store/apps/details?id=com.accrete.beinsure"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg text-base relative overflow-hidden flex items-center gap-3 justify-center"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="relative z-10 text-2xl">📱</span>
+              <span className="relative z-10 font-medium">Download Mobile App</span>
+            </motion.a>
+            
+            <motion.a
+              href="https://www.accreteindia.com/Setup/DownloadSetup.zip"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group px-8 py-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg text-base relative overflow-hidden flex items-center gap-3 justify-center"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="relative z-10 text-2xl">💻</span>
+              <span className="relative z-10 font-medium">Download Desktop App</span>
+            </motion.a>
+          </motion.div>
         </motion.div>
 
         {/* Features Grid */}
@@ -156,6 +188,7 @@ export function FeaturesOverview() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => {
+                    window.scrollTo(0, 0);
                     if (feature.id === 1) {
                       navigate('/crm');
                     } else if (feature.id === 2) {
