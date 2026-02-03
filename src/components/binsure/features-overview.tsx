@@ -101,13 +101,14 @@ export function FeaturesOverview() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
+            className="flex justify-center mt-8"
           >
+            {/* Mobile App Button - Only on Mobile */}
             <motion.a
               href="https://play.google.com/store/apps/details?id=com.accrete.beinsure"
               target="_blank"
               rel="noopener noreferrer"
-              className="group px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg text-base relative overflow-hidden flex items-center gap-3 justify-center"
+              className="md:hidden group px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg text-base relative overflow-hidden flex items-center gap-3 justify-center"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -115,11 +116,12 @@ export function FeaturesOverview() {
               <span className="relative z-10 font-medium">Download Mobile App</span>
             </motion.a>
             
+            {/* Desktop App Button - Only on Desktop */}
             <motion.a
               href="https://www.accreteindia.com/Setup/DownloadSetup.zip"
               target="_blank"
               rel="noopener noreferrer"
-              className="group px-8 py-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg text-base relative overflow-hidden flex items-center gap-3 justify-center"
+              className="hidden md:flex group px-8 py-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg text-base relative overflow-hidden items-center gap-3 justify-center"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
