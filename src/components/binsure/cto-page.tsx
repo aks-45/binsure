@@ -49,7 +49,7 @@ export function CTOPage() {
               <div>
                 <h1 className="text-4xl md:text-5xl text-white font-bold mb-2">Sandeep Jain</h1>
                 <h3 className="text-xl text-blue-300 font-semibold mb-1">Founder, Owner & Chief Executive Officer</h3>
-                <h4 className="text-lg text-blue-400">BeeInSure Software</h4>
+                <h4 className="text-lg text-blue-400">BInsure Software</h4>
               </div>
 
               <p className="text-blue-200 text-lg leading-relaxed">
