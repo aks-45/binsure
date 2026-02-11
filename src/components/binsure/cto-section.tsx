@@ -49,11 +49,11 @@ export function CTOSection() {
             <div>
               <h1 className="text-2xl md:text-3xl text-white font-bold mb-2">Sandeep Jain</h1>
               <h3 className="text-base text-blue-300 font-semibold mb-1">Founder, Owner & Chief Executive Officer</h3>
-              <h4 className="text-sm text-blue-400">BeeInSure Software</h4>
+              <h4 className="text-sm text-blue-400">BInsure Software</h4>
             </div>
 
             <p className="text-blue-200 text-sm leading-relaxed">
-              Sandeep Jain is the strategic force behind BeeInSure Software, leading the organization with a strong vision for innovation, digital transformation, and sustainable technology growth. His leadership blends deep technical expertise with strong business acumen to build enterprise-grade solutions.
+              Sandeep Jain is the strategic force behind BInsure Software, leading the organization with a strong vision for innovation, digital transformation, and sustainable technology growth. His leadership blends deep technical expertise with strong business acumen to build enterprise-grade solutions.
             </p>
 
             <div className="bg-slate-800/50 backdrop-blur-sm p-4 rounded-2xl border border-blue-500/20">
@@ -62,7 +62,7 @@ export function CTOSection() {
                 <h2 className="text-lg text-white font-bold">Executive Vision</h2>
               </div>
               <p className="text-blue-200 text-sm leading-relaxed">
-                Sandeep drives the company's long-term technology and product roadmap, ensuring BeeInSure remains at the forefront of fintech and enterprise software development.
+                Sandeep drives the company's long-term technology and product roadmap, ensuring BInsure remains at the forefront of fintech and enterprise software development.
               </p>
             </div>
 
