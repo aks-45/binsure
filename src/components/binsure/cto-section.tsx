@@ -29,45 +29,32 @@ export function CTOSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl opacity-20 blur-xl" />
-            <div className="relative bg-slate-800/50 backdrop-blur-sm p-4 rounded-3xl border border-white/10">
-              <img src="/cto.jpeg" alt="Sandeep Jain" className="w-full rounded-2xl" />
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-5"
           >
             <div>
-              <h1 className="text-3xl md:text-4xl text-white font-bold mb-2">Sandeep Jain</h1>
-              <h3 className="text-lg text-blue-300 font-semibold mb-1">Founder, Owner & Chief Executive Officer</h3>
-              <h4 className="text-base text-blue-400">BeeInSure Software</h4>
+              <h1 className="text-2xl md:text-3xl text-white font-bold mb-2">Sandeep Jain</h1>
+              <h3 className="text-base text-blue-300 font-semibold mb-1">Founder, Owner & Chief Executive Officer</h3>
+              <h4 className="text-sm text-blue-400">BeeInSure Software</h4>
             </div>
 
-            <p className="text-blue-200 leading-relaxed">
+            <p className="text-blue-200 text-sm leading-relaxed">
               Sandeep Jain is the strategic force behind BeeInSure Software, leading the organization with a strong vision for innovation, digital transformation, and sustainable technology growth. His leadership blends deep technical expertise with strong business acumen to build enterprise-grade solutions.
             </p>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm p-5 rounded-2xl border border-blue-500/20">
-              <div className="flex items-center gap-3 mb-3">
+            <div className="bg-slate-800/50 backdrop-blur-sm p-4 rounded-2xl border border-blue-500/20">
+              <div className="flex items-center gap-3 mb-2">
                 <Target className="w-5 h-5 text-blue-400" />
-                <h2 className="text-xl text-white font-bold">Executive Vision</h2>
+                <h2 className="text-lg text-white font-bold">Executive Vision</h2>
               </div>
               <p className="text-blue-200 text-sm leading-relaxed">
                 Sandeep drives the company's long-term technology and product roadmap, ensuring BeeInSure remains at the forefront of fintech and enterprise software development.
               </p>
             </div>
 
-            <div className="bg-slate-800/50 backdrop-blur-sm p-5 rounded-2xl border border-purple-500/20">
-              <div className="flex items-center gap-3 mb-3">
+            <div className="bg-slate-800/50 backdrop-blur-sm p-4 rounded-2xl border border-purple-500/20">
+              <div className="flex items-center gap-3 mb-2">
                 <Award className="w-5 h-5 text-purple-400" />
-                <h2 className="text-xl text-white font-bold">Core Expertise</h2>
+                <h2 className="text-lg text-white font-bold">Core Expertise</h2>
               </div>
               <ul className="space-y-2 text-sm">
                 {[
@@ -82,6 +69,21 @@ export function CTOSection() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative flex justify-end"
+          >
+            <div className="relative w-80">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl opacity-20 blur-xl" />
+              <div className="relative bg-slate-800/50 backdrop-blur-sm p-3 rounded-3xl border border-white/10">
+                <img src="/cto.jpeg" alt="Sandeep Jain" className="w-full rounded-2xl" />
+              </div>
             </div>
           </motion.div>
         </div>
