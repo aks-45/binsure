@@ -13,6 +13,7 @@ import CRM from "./pages/CRM";
 import PresentationModule from "./pages/PresentationModule";
 import ServicesModule from "./pages/ServicesModule";
 import ServicingReportsModule from "./pages/ServicingReportsModule";
+import CTO from "./pages/CTO";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/servicing-reports-module" element={<ServicingReportsModule />} />
           <Route path="/servicing-reports" element={<ServicingReports />} />
           <Route path="/binsure" element={<Binsure />} />
+          <Route path="/cto" element={<CTO />} />
           <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

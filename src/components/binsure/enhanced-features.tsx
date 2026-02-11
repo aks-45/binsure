@@ -88,6 +88,7 @@ export function EnhancedFeatures() {
         {/* Feature cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto justify-center">
           {features.map((feature, index) => {
+            const isMobile = feature.title === "Mobile Application";
             return (
               <motion.div
                 key={feature.title}
@@ -99,7 +100,7 @@ export function EnhancedFeatures() {
                   y: -10,
                   transition: { duration: 0.3 },
                 }}
-                onClick={() => navigate('/features')}
+                onClick={() => navigate(`/features?app=${isMobile ? 'mobile' : 'desktop'}`)}
                 className="group relative cursor-pointer"
               >
                 {/* Card glow effect */}

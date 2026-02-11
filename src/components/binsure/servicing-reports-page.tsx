@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { BarChart3, DollarSign, PieChart, FileText, Folder, CheckCircle, ArrowDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { Header } from "./header";
 import { Footer } from "./footer";
 
@@ -75,6 +76,8 @@ const reportingFeatures = [
 
 export function ServicingReportsPage() {
   const navigate = useNavigate();
+  const [searchParams] = useState(() => new URLSearchParams(window.location.search));
+  const appType = searchParams.get('app') || 'desktop';
 
   return (
     <>
@@ -181,20 +184,37 @@ export function ServicingReportsPage() {
           ))}
         </div>
 
-        {/* Service Report Image */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <img
-            src="/service-report.jpeg"
-            alt="BInsure Servicing Reports Module"
-            className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl border border-white/10"
-          />
-        </motion.div>
+        {/* Service Report Images */}
+        <div className="space-y-8 mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <img
+              src={appType === 'mobile' ? '/service-report.jpeg' : '/service-report(d).png'}
+              alt={`BInsure Servicing Reports Module - ${appType === 'mobile' ? 'Mobile' : 'Desktop'} View`}
+              className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl border border-white/10"
+            />
+          </motion.div>
+          {appType === 'desktop' && (
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-center"
+            >
+              <img
+                src="/service-report1(d).png"
+                alt="BInsure Servicing Reports Module - Desktop View 2"
+                className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl border border-white/10"
+              />
+            </motion.div>
+          )}
+        </div>
       </div>
       </section>
       <Footer />

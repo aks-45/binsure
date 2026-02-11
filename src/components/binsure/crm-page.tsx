@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Users, FileText, Search, Phone, Mail, MessageSquare, Share2, CheckCircle, Calendar, Target, ArrowDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { Header } from "./header";
 import { Footer } from "./footer";
 
@@ -68,6 +69,8 @@ const crmFeatures = [
 
 export function CRMPage() {
   const navigate = useNavigate();
+  const [searchParams] = useState(() => new URLSearchParams(window.location.search));
+  const appType = searchParams.get('app') || 'desktop';
 
   return (
     <>
@@ -183,8 +186,8 @@ export function CRMPage() {
           className="text-center mb-20"
         >
           <img
-            src="/crm.jpeg"
-            alt="BInsure CRM Module"
+            src={appType === 'mobile' ? '/CRM.jpeg' : '/CRM(d).png'}
+            alt={`BInsure CRM Module - ${appType === 'mobile' ? 'Mobile' : 'Desktop'} View`}
             className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl border border-white/10"
           />
         </motion.div>

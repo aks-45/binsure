@@ -67,17 +67,8 @@ const features = [
 
 export function FeaturesOverview() {
   const navigate = useNavigate();
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkDevice = () => {
-      setIsMobile(window.innerWidth < 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
-    };
-    
-    checkDevice();
-    window.addEventListener('resize', checkDevice);
-    return () => window.removeEventListener('resize', checkDevice);
-  }, []);
+  const [searchParams] = useState(() => new URLSearchParams(window.location.search));
+  const appType = searchParams.get('app') || 'both';
 
   return (
     <>
@@ -113,21 +104,9 @@ export function FeaturesOverview() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex justify-center mt-8"
+            className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
           >
-            {isMobile ? (
-              <motion.a
-                href="https://play.google.com/store/apps/details?id=com.accrete.beinsure"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg text-base relative overflow-hidden flex items-center gap-3 justify-center"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="relative z-10 text-2xl">📱</span>
-                <span className="relative z-10 font-medium">Download Mobile App</span>
-              </motion.a>
-            ) : (
+            {(appType === 'desktop' || appType === 'both') && (
               <motion.a
                 href="https://www.accreteindia.com/Setup/DownloadSetup.zip"
                 target="_blank"
@@ -138,6 +117,20 @@ export function FeaturesOverview() {
               >
                 <span className="relative z-10 text-2xl">💻</span>
                 <span className="relative z-10 font-medium">Download Desktop App</span>
+              </motion.a>
+            )}
+            
+            {(appType === 'mobile' || appType === 'both') && (
+              <motion.a
+                href="https://play.google.com/store/apps/details?id=com.accrete.beinsure"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group px-8 py-4 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg text-base relative overflow-hidden flex items-center gap-3 justify-center"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="relative z-10 text-2xl">📱</span>
+                <span className="relative z-10 font-medium">Download Mobile App</span>
               </motion.a>
             )}
           </motion.div>
@@ -204,13 +197,13 @@ export function FeaturesOverview() {
                   onClick={() => {
                     window.scrollTo(0, 0);
                     if (feature.id === 1) {
-                      navigate('/crm');
+                      navigate(`/crm?app=${appType}`);
                     } else if (feature.id === 2) {
-                      navigate('/presentation');
+                      navigate(`/presentation?app=${appType}`);
                     } else if (feature.id === 3) {
-                      navigate('/services-module');
+                      navigate(`/services-module?app=${appType}`);
                     } else if (feature.id === 4) {
-                      navigate('/servicing-reports-module');
+                      navigate(`/servicing-reports-module?app=${appType}`);
                     } else {
                       navigate('/contact');
                     }
@@ -229,20 +222,36 @@ export function FeaturesOverview() {
                 >
                   <div className={`absolute -inset-4 bg-gradient-to-r ${feature.color} rounded-3xl opacity-20 blur-xl`} />
                   <div className="relative bg-slate-800/50 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
-                    <div className="grid grid-cols-2 gap-4">
-                      {[Calendar, Bell, TrendingUp, CheckCircle].map((Icon, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.5, delay: i * 0.1 }}
-                          className="p-4 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center"
-                        >
-                          <Icon className="w-8 h-8 text-white/70" />
-                        </motion.div>
-                      ))}
-                    </div>
+                    {appType === 'mobile' ? (
+                      <div className="flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="text-6xl mb-4">📱</div>
+                          <p className="text-white/70 text-sm">Mobile App Interface</p>
+                        </div>
+                      </div>
+                    ) : appType === 'desktop' ? (
+                      <div className="flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="text-6xl mb-4">💻</div>
+                          <p className="text-white/70 text-sm">Desktop App Interface</p>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="grid grid-cols-2 gap-4">
+                        {[Calendar, Bell, TrendingUp, CheckCircle].map((Icon, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: i * 0.1 }}
+                            className="p-4 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center"
+                          >
+                            <Icon className="w-8 h-8 text-white/70" />
+                          </motion.div>
+                        ))}
+                      </div>
+                    )}
                     <div className="mt-6 text-center">
                       <div className={`inline-block p-3 rounded-full bg-gradient-to-r ${feature.color}`}>
                         <feature.icon className="w-6 h-6 text-white" />

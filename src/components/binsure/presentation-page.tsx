@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Presentation, Edit3, Star, Package, PiggyBank, CheckCircle, ArrowDown, Target } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { Header } from "./header";
 import { Footer } from "./footer";
 
@@ -69,6 +70,8 @@ const presentationFeatures = [
 
 export function PresentationPage() {
   const navigate = useNavigate();
+  const [searchParams] = useState(() => new URLSearchParams(window.location.search));
+  const appType = searchParams.get('app') || 'desktop';
 
   return (
     <>
@@ -175,20 +178,37 @@ export function PresentationPage() {
           ))}
         </div>
 
-        {/* Presentation Image */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <img
-            src="/presentation.jpeg"
-            alt="BInsure Presentation Module"
-            className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl border border-white/10"
-          />
-        </motion.div>
+        {/* Presentation Images */}
+        <div className="space-y-8 mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <img
+              src={appType === 'mobile' ? '/presentation.jpeg' : '/presentation(d).png'}
+              alt={`BInsure Presentation Module - ${appType === 'mobile' ? 'Mobile' : 'Desktop'} View`}
+              className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl border border-white/10"
+            />
+          </motion.div>
+          {appType === 'desktop' && (
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-center"
+            >
+              <img
+                src="/presentation1(d).png"
+                alt="BInsure Presentation Module - Desktop View 2"
+                className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl border border-white/10"
+              />
+            </motion.div>
+          )}
+        </div>
       </div>
       </section>
       <Footer />
