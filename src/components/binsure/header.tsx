@@ -44,13 +44,6 @@ export function Header({ currentPage }: HeaderProps) {
               Our Products
             </button>
           )}
-          {currentPage === 'cto' ? (
-            <span className="text-slate-900 font-medium">CTO</span>
-          ) : (
-            <button onClick={() => { window.scrollTo(0, 0); navigate('/cto'); }} className="hover:text-slate-900 transition-colors">
-              CTO
-            </button>
-          )}
           {currentPage === 'contact' ? (
             <span className="text-slate-900 font-medium">Contact</span>
           ) : (
@@ -105,18 +98,6 @@ export function Header({ currentPage }: HeaderProps) {
               } transition-colors`}
             >
               Our Products
-            </button>
-            <button
-              onClick={() => {
-                window.scrollTo(0, 0);
-                navigate('/cto');
-                setIsMenuOpen(false);
-              }}
-              className={`block w-full text-left ${
-                currentPage === 'cto' ? 'text-slate-900 font-medium' : 'text-slate-600 hover:text-slate-900'
-              } transition-colors`}
-            >
-              CTO
             </button>
             <button
               onClick={() => {
