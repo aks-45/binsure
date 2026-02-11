@@ -25,11 +25,26 @@ export function CTOSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative flex justify-end lg:order-2"
+          >
+            <div className="relative w-80 mx-auto lg:mx-0">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl opacity-20 blur-xl" />
+              <div className="relative bg-slate-800/50 backdrop-blur-sm p-3 rounded-3xl border border-white/10">
+                <img src="/cto.jpeg" alt="Sandeep Jain" className="w-full rounded-2xl" />
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="space-y-5"
+            className="space-y-5 lg:order-1"
           >
             <div>
               <h1 className="text-2xl md:text-3xl text-white font-bold mb-2">Sandeep Jain</h1>
@@ -69,21 +84,6 @@ export function CTOSection() {
                   </li>
                 ))}
               </ul>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative flex justify-end"
-          >
-            <div className="relative w-80">
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl opacity-20 blur-xl" />
-              <div className="relative bg-slate-800/50 backdrop-blur-sm p-3 rounded-3xl border border-white/10">
-                <img src="/cto.jpeg" alt="Sandeep Jain" className="w-full rounded-2xl" />
-              </div>
             </div>
           </motion.div>
         </div>
