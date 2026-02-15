@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { useNavigate } from "react-router-dom";
 
 export function Footer() {
+  const navigate = useNavigate();
   return (
     <footer className="bg-white border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6 py-12">
@@ -15,7 +19,7 @@ export function Footer() {
           >
             <img
               src="/logo.png"
-              alt="Binsure"
+              alt="BInsure"
               className="h-10 w-auto mb-4"
               style={{ height: '40px' }}
             />
@@ -42,19 +46,25 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="/features"
-                  className="hover:text-slate-900 transition-colors hover:translate-x-1 inline-block"
+                <button
+                  onClick={() => {
+                    navigate('/');
+                    setTimeout(() => {
+                      const element = document.getElementById('products');
+                      if (element) element.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
+                  className="hover:text-slate-900 transition-colors hover:translate-x-1 inline-block text-left"
                 >
                   Our Products
-                </a>
+                </button>
               </li>
               <li>
                 <a
                   href="/contact"
                   className="hover:text-slate-900 transition-colors hover:translate-x-1 inline-block"
                 >
-                  Contact
+                  Contact and Support
                 </a>
               </li>
             </ul>
@@ -71,11 +81,15 @@ export function Footer() {
             <ul className="space-y-2 text-slate-600 text-sm">
               <li className="flex items-center gap-2 group">
                 <Mail className="w-4 h-4 text-slate-500 group-hover:text-slate-700 transition-colors" />
-                <span className="text-xs">Binsuresoftware@gmail.com</span>
+                <span className="text-xs">binsuresoftware@gmail.com</span>
               </li>
               <li className="flex items-center gap-2 group">
                 <Phone className="w-4 h-4 text-slate-500 group-hover:text-slate-700 transition-colors" />
                 <span className="text-xs">+91 7219885007</span>
+              </li>
+              <li className="flex items-center gap-2 group">
+                <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4 text-green-600 group-hover:text-green-700 transition-colors" />
+                <span className="text-xs">+91 9595316662</span>
               </li>
               <li className="flex items-start gap-2 group">
                 <MapPin className="w-4 h-4 mt-1 text-slate-500 group-hover:text-slate-700 transition-colors" />
@@ -107,7 +121,7 @@ export function Footer() {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <p className="text-slate-500 text-xs">
-            &copy; 2026 Binsure. All rights reserved.
+            &copy; 2026 BInsure. All rights reserved.
           </p>
         </motion.div>
       </div>

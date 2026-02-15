@@ -74,7 +74,7 @@ export function CTOSection() {
               <ul className="space-y-2 text-sm">
                 {[
                   "Enterprise Software Architecture",
-                  "Cloud & Scalable Infrastructure",
+                  "Scalable Infrastructure",
                   "FinTech Platform Innovation",
                   "Engineering Team Development"
                 ].map((item, index) => (

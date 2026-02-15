@@ -22,7 +22,7 @@ export function Header({ currentPage }: HeaderProps) {
         <button onClick={() => { window.scrollTo(0, 0); navigate('/'); }}>
           <img
             src="/logo.png"
-            alt="Binsure"
+            alt="BInsure"
             className="h-12 w-auto"
             style={{ height: '48px' }}
           />
@@ -40,15 +40,21 @@ export function Header({ currentPage }: HeaderProps) {
           {currentPage === 'products' ? (
             <span className="text-slate-900 font-medium">Our Products</span>
           ) : (
-            <button onClick={() => { window.scrollTo(0, 0); navigate('/features'); }} className="hover:text-slate-900 transition-colors">
+            <button onClick={() => { 
+              navigate('/');
+              setTimeout(() => {
+                const element = document.getElementById('products');
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
+            }} className="hover:text-slate-900 transition-colors">
               Our Products
             </button>
           )}
           {currentPage === 'contact' ? (
-            <span className="text-slate-900 font-medium">Contact</span>
+            <span className="text-slate-900 font-medium">Contact and Support</span>
           ) : (
             <button onClick={() => { window.scrollTo(0, 0); navigate('/contact'); }} className="hover:text-slate-900 transition-colors">
-              Contact
+              Contact and Support
             </button>
           )}
         </nav>
@@ -89,8 +95,11 @@ export function Header({ currentPage }: HeaderProps) {
             </button>
             <button
               onClick={() => {
-                window.scrollTo(0, 0);
-                navigate('/features');
+                navigate('/');
+                setTimeout(() => {
+                  const element = document.getElementById('products');
+                  if (element) element.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
                 setIsMenuOpen(false);
               }}
               className={`block w-full text-left ${
@@ -109,7 +118,7 @@ export function Header({ currentPage }: HeaderProps) {
                 currentPage === 'contact' ? 'text-slate-900 font-medium' : 'text-slate-600 hover:text-slate-900'
               } transition-colors`}
             >
-              Contact
+              Contact and Support
             </button>
           </nav>
         </motion.div>

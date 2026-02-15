@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Users, SearchCode, Presentation, Target } from "lucide-react";
-import { useRef } from "react";
+import { Users, SearchCode, Presentation, Target, X, ChevronLeft, ChevronRight, Image } from "lucide-react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const features = [
@@ -8,11 +8,26 @@ const features = [
     icon: Users,
     title: "Mobile Application",
     description: "All Your Policy Work, Right from Your Phone",
+    images: [
+      { url: '/CRM.jpeg', caption: 'CRM Module - Mobile View' },
+      { url: '/presentation.jpeg', caption: 'Presentation Module - Mobile View' },
+      { url: '/service.jpeg', caption: 'Services Module - Mobile View' },
+      { url: '/service-report.jpeg', caption: 'Servicing Reports - Mobile View' }
+    ]
   },
   {
     icon: SearchCode,
     title: "Desktop Application",
     description: "Powerful Tools for Professional Policy Management",
+    images: [
+      { url: '/CRM(d).png', caption: 'CRM Module - Desktop View' },
+      { url: '/presentation(d).png', caption: 'Presentation Module - Desktop View' },
+      { url: '/presentation1(d).png', caption: 'Presentation Module - Desktop View 2' },
+      { url: '/service(d).png', caption: 'Services Module - Desktop View' },
+      { url: '/service2(d).png', caption: 'Services Module - Desktop View 2' },
+      { url: '/service-report(d).png', caption: 'Servicing Reports - Desktop View' },
+      { url: '/service-report1(d).png', caption: 'Servicing Reports - Desktop View 2' }
+    ]
   },
   
 ];
@@ -20,6 +35,9 @@ const features = [
 export function EnhancedFeatures() {
   const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
+  const [showSlideshow, setShowSlideshow] = useState(false);
+  const [currentFeature, setCurrentFeature] = useState<typeof features[0] | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
@@ -28,8 +46,35 @@ export function EnhancedFeatures() {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.3, 1, 1, 0.3]);
 
+  const openSlideshow = (feature: typeof features[0], e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentFeature(feature);
+    setCurrentImageIndex(0);
+    setShowSlideshow(true);
+  };
+
+  const closeSlideshow = () => {
+    setShowSlideshow(false);
+    setCurrentFeature(null);
+    setCurrentImageIndex(0);
+  };
+
+  const nextImage = () => {
+    if (currentFeature) {
+      setCurrentImageIndex((prev) => (prev + 1) % currentFeature.images.length);
+    }
+  };
+
+  const prevImage = () => {
+    if (currentFeature) {
+      setCurrentImageIndex((prev) => (prev - 1 + currentFeature.images.length) % currentFeature.images.length);
+    }
+  };
+
   return (
+    <>
     <section
+      id="products"
       ref={containerRef}
       className="relative py-16 overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900"
       style={{ position: 'relative' }}
@@ -89,6 +134,7 @@ export function EnhancedFeatures() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto justify-center">
           {features.map((feature, index) => {
             const isMobile = feature.title === "Mobile Application";
+            const imageUrl = feature.images[0].url;
             return (
               <motion.div
                 key={feature.title}
@@ -111,13 +157,22 @@ export function EnhancedFeatures() {
 
                 {/* Card content */}
                 <div className="relative bg-slate-800/50 backdrop-blur-sm p-6 rounded-2xl border border-blue-500/20 group-hover:border-blue-400/50 transition-all duration-500 h-48 flex flex-col">
-                  <motion.div
-                    className="mb-4 inline-block p-3 bg-blue-500/10 rounded-xl"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <feature.icon className="w-8 h-8 text-blue-400" />
-                  </motion.div>
+                  <div className="flex items-start gap-3 mb-4">
+                    <motion.div
+                      className="inline-block p-3 bg-blue-500/10 rounded-xl"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <feature.icon className="w-8 h-8 text-blue-400" />
+                    </motion.div>
+                    <motion.div
+                      className="p-3 bg-purple-500/10 rounded-xl cursor-pointer hover:bg-purple-500/20 transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                      onClick={(e) => openSlideshow(feature, e)}
+                    >
+                      <Image className="w-8 h-8 text-purple-400" />
+                    </motion.div>
+                  </div>
 
                   <h3 className="text-base font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
                     {feature.title}
@@ -133,5 +188,56 @@ export function EnhancedFeatures() {
         </div>
       </div>
     </section>
+
+    {/* Slideshow Modal */}
+    {showSlideshow && currentFeature && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90" onClick={closeSlideshow}>
+        <div className="relative max-w-4xl w-full mx-4" onClick={(e) => e.stopPropagation()}>
+          {/* Close button */}
+          <button
+            onClick={closeSlideshow}
+            className="absolute -top-12 right-0 text-white hover:text-blue-400 transition-colors"
+          >
+            <X className="w-8 h-8" />
+          </button>
+
+          {/* Image */}
+          <div className="relative">
+            <img
+              src={currentFeature.images[currentImageIndex].url}
+              alt={currentFeature.images[currentImageIndex].caption}
+              className="w-full max-h-[70vh] object-contain rounded-lg"
+            />
+            
+            {/* Navigation buttons */}
+            {currentFeature.images.length > 1 && (
+              <>
+                <button
+                  onClick={prevImage}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+                <button
+                  onClick={nextImage}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-colors"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              </>
+            )}
+          </div>
+
+          {/* Caption */}
+          <div className="bg-slate-800 text-white p-4 rounded-b-lg text-center">
+            <p className="text-lg font-medium">{currentFeature.images[currentImageIndex].caption}</p>
+            <p className="text-sm text-blue-300 mt-1">
+              {currentImageIndex + 1} / {currentFeature.images.length}
+            </p>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
   );
 }

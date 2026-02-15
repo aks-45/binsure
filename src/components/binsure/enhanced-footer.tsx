@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { Linkedin, Twitter, Facebook, Mail, Phone, MapPin } from "lucide-react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { useNavigate } from "react-router-dom";
 
 export function EnhancedFooter() {
+  const navigate = useNavigate();
   return (
     <footer className="relative bg-slate-900 text-white overflow-hidden">
       {/* Background gradient */}
@@ -17,7 +21,7 @@ export function EnhancedFooter() {
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-xl mb-3 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Binsure
+              BInsure
             </h3>
             <p className="text-blue-200/70 text-sm leading-relaxed">
               Smart software for insurance agents to manage clients, policies, and growth — all in one place.
@@ -42,12 +46,18 @@ export function EnhancedFooter() {
                 </a>
               </li>
               <li>
-                <a
-                  href="/features"
-                  className="hover:text-blue-400 transition-colors hover:translate-x-1 inline-block"
+                <button
+                  onClick={() => {
+                    navigate('/');
+                    setTimeout(() => {
+                      const element = document.getElementById('products');
+                      if (element) element.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
+                  className="hover:text-blue-400 transition-colors hover:translate-x-1 inline-block text-left"
                 >
                   Our Products
-                </a>
+                </button>
               </li>
               <li>
                 <a
@@ -71,11 +81,15 @@ export function EnhancedFooter() {
             <ul className="space-y-2 text-blue-200/70 text-sm">
               <li className="flex items-center gap-2 group">
                 <Mail className="w-4 h-4 text-blue-400 group-hover:text-blue-300 transition-colors" />
-                <span className="text-xs">Binsuresoftware@gmail.com</span>
+                <span className="text-xs">binsuresoftware@gmail.com</span>
               </li>
               <li className="flex items-center gap-2 group">
                 <Phone className="w-4 h-4 text-blue-400 group-hover:text-blue-300 transition-colors" />
                 <span className="text-xs">+91 7219885007</span>
+              </li>
+              <li className="flex items-center gap-2 group">
+                <FontAwesomeIcon icon={faWhatsapp} className="w-4 h-4 text-green-400 group-hover:text-green-300 transition-colors" />
+                <span className="text-xs">+91 9595316662</span>
               </li>
               <li className="flex items-start gap-2 group">
                 <MapPin className="w-4 h-4 mt-1 text-blue-400 group-hover:text-blue-300 transition-colors" />
@@ -122,7 +136,7 @@ export function EnhancedFooter() {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <p className="text-blue-200/50 text-xs">
-            &copy; 2026 Binsure. All rights reserved.
+            &copy; 2026 BInsure. All rights reserved.
           </p>
         </motion.div>
       </div>

@@ -84,7 +84,7 @@ export function FeaturesPage() {
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="text-white text-xl">
-            Binsure
+            BInsure
           </div>
           <nav className="hidden md:flex gap-8 text-white/80 text-sm">
             <button onClick={() => navigate('/')} className="hover:text-white transition-colors">

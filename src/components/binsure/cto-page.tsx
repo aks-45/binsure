@@ -86,7 +86,7 @@ export function CTOPage() {
                 <ul className="space-y-2">
                   {[
                     "Enterprise Software Architecture & System Design",
-                    "Cloud & Scalable Infrastructure Development",
+                    "Scalable Infrastructure Development",
                     "FinTech Platform Innovation",
                     "Engineering Team Development & Mentorship",
                     "Digital Business Transformation Strategy"

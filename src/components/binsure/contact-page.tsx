@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "./header";
@@ -70,8 +72,8 @@ export function ContactPage() {
         >
           <h1 className="text-4xl md:text-5xl text-white mb-6">Get In Touch</h1>
           <p className="text-lg text-blue-200 max-w-3xl mx-auto">
-            Ready to transform your business with intelligent solutions? 
-            Contact us today and let's discuss how Binsure can help you achieve unprecedented growth.
+            Ready to transform your business with intelligent solutions? <br></br>
+            Contact us today and let's discuss how BInsure can help you achieve unprecedented growth.
           </p>
         </motion.div>
 
@@ -107,13 +109,23 @@ export function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-4 group">
+                  <div className="p-3 bg-green-500/10 rounded-lg group-hover:bg-green-500/20 transition-colors">
+                    <FontAwesomeIcon icon={faWhatsapp} className="w-6 h-6 text-green-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-medium mb-1">WhatsApp</h3>
+                    <p className="text-blue-200/70">+919595316662</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 group">
                   <div className="p-3 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 transition-colors">
                     <MapPin className="w-6 h-6 text-blue-400" />
                   </div>
                   <div>
                     <h3 className="text-white font-medium mb-1">Address</h3>
                     <p className="text-blue-200/70">
-                      Binsure Technologies Pvt. Ltd.<br />
+                      BInsure Technologies Pvt. Ltd.<br />
                       123 Business Hub, Tech Park<br />
                       Nagpur, Maharashtra 440001<br />
                       India
